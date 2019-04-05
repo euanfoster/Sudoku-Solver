@@ -31,7 +31,7 @@ while e ~= 0
     
     %eliminates possibilites that are not possible
     poss = elim_poss(grid,poss);
-
+    
     %update grid based on poss
     grid = poss_grid_comp(poss,grid);
     

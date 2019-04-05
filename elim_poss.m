@@ -3,14 +3,14 @@ function [poss] = elim_poss(grid,poss)
 [r,c,d] = size(poss);
 
 %Initial comparison to grid
-for z = 1:d 
-  for y = 1:r
-      for x = 1:c     
-           if grid(y,x) ~= 0 && grid(y,x) ~= z
-               poss(y,x,z) = 0; 
-           end
-      end
-  end
+for z = 1:d
+    for y = 1:r
+        for x = 1:c
+            if grid(y,x) ~= 0 && grid(y,x) ~= z
+                poss(y,x,z) = 0;
+            end
+        end
+    end
 end
 
 
@@ -18,17 +18,17 @@ end
 for y=1:r   %LOOP THROUGH GRID IN Y/ROWS
     for x=1:c   %LOOP THROUGH GRID IN X/COLUMNS
         
-        %STORES VALUE IF THERE IS ONE 
+        %STORES VALUE IF THERE IS ONE
         if grid(y,x) ~= 0
             
             B = grid(y,x);
             
             for x2=1:c  %LOOP THROUGH POSS COLUMNS X
-                if poss(y,x2,B) ~= 0 && grid(y,x2) ~= grid(y,x)                    
+                if poss(y,x2,B) ~= 0 && grid(y,x2) ~= grid(y,x)
                     poss(y, x2, B) = 0;
                 end
             end
-        
+            
         end
     end
 end
@@ -37,17 +37,17 @@ end
 for y=1:r   %LOOP THROUGH GRID IN Y/ROWS
     for x=1:c   %LOOP THROUGH GRID IN X/COLUMNS
         
-        %STORES VALUE IF THERE IS ONE 
+        %STORES VALUE IF THERE IS ONE
         if grid(y,x) ~= 0
             
             B = grid(y,x);
             
             for y2=1:c  %LOOP THROUGH POSS COLUMNS X
-                if poss(y2,x,B) ~= 0 && grid(y2,x) ~= grid(y,x)                    
+                if poss(y2,x,B) ~= 0 && grid(y2,x) ~= grid(y,x)
                     poss(y2, x, B) = 0;
                 end
             end
-        
+            
         end
     end
 end
@@ -57,7 +57,7 @@ end
 %compares sub grids to possibilities
 %removes possibilites that are not possible based on grid values
 for ssgy = 1:3
-
+    
     if ssgy ==1
         sgy=1;
     elseif ssgy == 2
@@ -69,7 +69,7 @@ for ssgy = 1:3
     for ssgx = 1:3
         
         if ssgx == 1
-            sgx = 1;       
+            sgx = 1;
         elseif ssgx == 2
             sgx = 4;
         elseif ssgx == 3
@@ -81,7 +81,7 @@ for ssgy = 1:3
                 if grid((sgy+gy),(sgx+gx))~=0
                     
                     B = grid((sgy+gy),(sgx+gx));
-                   
+                    
                     for gy2 = 0:2
                         for gx2 = 0:2
                             if poss((sgy+gy2),(sgx+gx2),B) ~= 0 && grid((sgy+gy2),(sgx+gx2))~= grid((sgy+gy),(sgx+gx))
@@ -89,7 +89,7 @@ for ssgy = 1:3
                             end
                         end
                     end
-                   
+                    
                 end
             end
         end
@@ -100,7 +100,7 @@ end
 %possible in the subgrid
 for z = 1:d
     for ssgy = 1:3
-
+        
         if ssgy ==1
             sgy=1;
         elseif ssgy == 2
@@ -108,11 +108,11 @@ for z = 1:d
         elseif ssgy == 3
             sgy = 7;
         end
-
+        
         for ssgx = 1:3
-
+            
             if ssgx == 1
-                sgx = 1;       
+                sgx = 1;
             elseif ssgx == 2
                 sgx = 4;
             elseif ssgx == 3
