@@ -1,11 +1,32 @@
 function [grid] = poss_grid_comp(poss,grid)
+%USAGE
+%	elim_poss(poss,grid)
+%AUTHOR
+%	Euan Foster (2019)
+%SUMMARY
+%	Updates the soduku grid based on a 3D 9x9x9 array of possibilities
+%OUTPUTS
+%	Generates an updated grid based on a given 3D 9x9x9 array of possibilities 
+%INPUTS
+%	poss - Possible values of sodoku problem in a 3D 9x9x9 array. Each
+%	depth slice of 9x9 corresponds to a value 1-9. Each 9x9 vartical and
+%	horizontal rows corresponds to where in the sodoku grid the possibility
+%	could lie
+%   grid - Initial/updated sodoku problem in a 9 x 9 array. Unique
+%   solutions of poss are identified in line with the rules of sodoku and
+%   are used to update the grid.
+%NOTES
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 [r,c,d] = size(poss);
 
 %if grid summation = 1, the value is stored, identified and implemented
 sumpossd = sum(poss,3);
 
-for y = 5:5
-    for x = 5:5
+for y = 1:r
+    for x = 1:c
         if grid(y,x) == 0 && sumpossd(y,x) == 1
             for z = 1:d
                 if poss(y,x,z) == 1
@@ -39,8 +60,8 @@ end
 %if grid summation = 1, the value is stored, identified and implemented
 sumpossr = sum(poss,1);
 
-for z = 4:4
-    for x = 5:5
+for z = 1:d
+    for x = 1:c
         if sumpossr(1,x,z) == 1
             for y = 1:r
                 if poss(y,x,z) == 1 && grid(y,x) == 0

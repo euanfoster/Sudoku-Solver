@@ -1,4 +1,24 @@
 function [poss] = elim_poss(grid,poss)
+%USAGE
+%	elim_poss(grid,poss)
+%AUTHOR
+%	Euan Foster (2019)
+%SUMMARY
+%	Elimantes possible solutions of a sodoku problem
+%OUTPUTS
+%	Generates the possible solutions from a given sodoku grid in a 3D
+%	9x9x9 possibility matrix
+%INPUTS
+%	grid - Initial/updated sodoku problem in a 9 x 9 array
+%	poss - Possible values of sodoku problem in a 3D 9x9x9 array. Each
+%	depth slice of 9x9 corresponds to a value 1-9. Each 9x9 vartical and
+%	horizontal rows corresponds to where in the sodoku grid the possibility
+%	could lie
+%NOTES
+%	Eliminates possibilities based on the rules of sodoku froma  given
+%	grid. This should return a unique value which can then be used to
+%	update the sodoku grid
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 [r,c,d] = size(poss);
 
