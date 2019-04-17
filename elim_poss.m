@@ -52,50 +52,6 @@ for y=1:r   %LOOP THROUGH GRID IN Y/ROWS
     end
 end
 
-%OLD DUNNO WTF THIS DOES
-%Edit: proven to do something but I forgets
-%compares sub grids to possibilities
-%removes possibilites that are not possible based on grid values
-for ssgy = 1:3
-    
-    if ssgy ==1
-        sgy=1;
-    elseif ssgy == 2
-        sgy = 4;
-    elseif ssgy == 3
-        sgy = 7;
-    end
-    
-    for ssgx = 1:3
-        
-        if ssgx == 1
-            sgx = 1;
-        elseif ssgx == 2
-            sgx = 4;
-        elseif ssgx == 3
-            sgx = 7;
-        end
-        
-        for gy = 0:2
-            for gx = 0:2
-                if grid((sgy+gy),(sgx+gx))~=0
-                    
-                    B = grid((sgy+gy),(sgx+gx));
-                    
-                    for gy2 = 0:2
-                        for gx2 = 0:2
-                            if poss((sgy+gy2),(sgx+gx2),B) ~= 0 && grid((sgy+gy2),(sgx+gx2))~= grid((sgy+gy),(sgx+gx))
-                                poss((sgy+gy2),(sgx+gx2),B) = 0;
-                            end
-                        end
-                    end
-                    
-                end
-            end
-        end
-    end
-end
-
 %Compares possibilities to grid and removes possibilites that are not
 %possible in the subgrid
 for z = 1:d
