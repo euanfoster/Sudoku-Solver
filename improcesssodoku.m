@@ -47,4 +47,4 @@ sprintf('Puzzle Solved in %d iterations', counter)
 %look up opening figure  maximised or better table
 figure(02)
 clf
-t=uitable('Data',grid,'ColumnEditable',false, 'position', [20 20 600 300]);
+t=uitable('Data',grid,'ColumnEditable',false, 'position', [5 5 500 200], 'ColumnWidth',{50});
