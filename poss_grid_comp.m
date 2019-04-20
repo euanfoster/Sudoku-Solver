@@ -46,7 +46,7 @@ for z = 1:d
     for y = 1:r
         if sumpossc(y,1,z) == 1
             for x = 1:c
-                if poss(y,x,z) == 1 && grid(x,y) == 0
+                if poss(y,x,z) == 1 && grid(y,x) == 0
                     grid(y,x) = z;
                 end
             end
